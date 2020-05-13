@@ -33,21 +33,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scroll_on_output = True
-    palette = "#2d2d2d:#e2a8bf:#81d778:#c4c9c0:#264b49:#a481d3:#15ab9c:#02c5e0:#ffffff:#ffcdd9:#beffa8:#d0ccca:#7ab0d2:#c5a7d9:#8cdfe0:#e0e0e0"
-    use_system_font = False
-  [[One dark]]
-    background_color = "#1e2127"
-    cursor_color = "#676c76"
-    font = Hack 12
-    foreground_color = "#5c6370"
-    palette = "#000000:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#abb2bf:#5c6370:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#fffefe"
-    use_system_font = False
-  [[Atom]]
-    background_color = "#161719"
-    cursor_color = "#d0d0d0"
-    font = Hack 12
-    foreground_color = "#c5c8c6"
-    palette = "#000000:#fd5ff1:#87c38a:#ffd7b1:#85befd:#b9b6fc:#85befd:#e0e0e0:#000000:#fd5ff1:#94fa36:#f5ffa8:#96cbfe:#b9b6fc:#85befd:#e0e0e0"
+    palette = "#2d2d2d:#e2a8bf:#81d778:#c4c9c0:#066252:#a481d3:#15ab9c:#02c5e0:#ffffff:#ffcdd9:#beffa8:#d0ccca:#7ab0d2:#c5a7d9:#8cdfe0:#e0e0e0"
     use_system_font = False
 [layouts]
   [[default]]
