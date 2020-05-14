@@ -19,12 +19,20 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
+<<<<<<< HEAD
 (setq doom-font (font-spec :family "monospace" :size 18))
+=======
+(setq doom-font (font-spec :family "SF Mono" :size 14))
+>>>>>>> origin/work
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
+<<<<<<< HEAD
 (setq doom-theme 'doom-one)
+=======
+(setq doom-theme 'doom-vibrant)
+>>>>>>> origin/work
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
