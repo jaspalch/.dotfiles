@@ -9,8 +9,6 @@ export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -la'
