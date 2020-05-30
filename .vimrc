@@ -21,6 +21,26 @@ Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rakr/vim-one'
+Plug 'christophermca/meta5'
+Plug 'Rigellute/rigel'
+Plug 'reedes/vim-colors-pencil'
+Plug 'mhartington/oceanic-next'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'nanotech/jellybeans.vim'
+Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }
+Plug 'Badacadabra/vim-archery'
+Plug 'AlessandroYorba/Arcadia'
+Plug 'zcodes/vim-colors-basic'
+Plug 'atelierbram/vim-colors_duotones'
+Plug 'limadm/vim-blues'
+Plug 'agreco/vim-citylights'
+Plug 'GertjanReynaert/cobalt2-vim-theme'
+Plug 'gosukiwi/vim-atom-dark'
 
 " Initialize plugin system
 call plug#end()
@@ -167,4 +187,8 @@ let g:rg_command = 'rg --vimgrep -S'
 
 "" Set rg highlight
 let g:rg_highlight = 'true'
+
+"" Theme settings
+set background=dark
+set termguicolors
 
