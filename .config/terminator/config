@@ -1,6 +1,5 @@
 [global_config]
   handle_size = 4
-  borderless = True
   extra_styling = False
   title_transmit_bg_color = "#204a87"
   enabled_plugins = ActivityWatch, TerminalShot, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
