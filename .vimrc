@@ -21,7 +21,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rakr/vim-one'
 Plug 'christophermca/meta5'
 Plug 'dracula/vim'
