@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "workbench.startupEditor": "newUntitledFile",
     "diffEditor.renderSideBySide": false,
     "editor.minimap.enabled": false,
@@ -8,10 +8,12 @@
     "gitlens.currentLine.enabled": false,
     "files.insertFinalNewline": true,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Andromeda Colorizer",
+    "workbench.colorTheme": "Andromeda",
     "workbench.editor.showTabs": true,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
 
     "vim.leader": "<space>",
+    "vim.useCtrlKeys": false,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": false,
@@ -40,7 +42,7 @@
         },
         {
             "before": ["<leader>", "F"],
-            "commands": ["workbench.action.findInFiles"]
+            "commands": ["search.action.openNewEditor"]
         },
         {
             "before": ["<leader>", "q"],
