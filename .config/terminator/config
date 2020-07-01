@@ -19,6 +19,7 @@
   [[default]]
     cursor_color = "#aaaaaa"
     font = Hack 11
+    show_titlebar = False
     use_system_font = False
   [[Slate]]
     visible_bell = True
@@ -39,6 +40,7 @@
     cursor_color = "#b9b9b9"
     font = Hack 11
     foreground_color = "#d6dbe5"
+    show_titlebar = False
     palette = "#1f1f1f:#f81118:#2dc55e:#ecba0f:#2a84d2:#4e5ab7:#1081d6:#d6dbe5:#d6dbe5:#de352e:#1dd361:#f3bd09:#1081d6:#5350b9:#0f7ddb:#ffffff"
     use_system_font = False
 [layouts]
@@ -58,6 +60,6 @@
       type = Terminal
       parent = child0
       order = 0
-      profile = Slate
+      profile = Brogrammer
       uuid = cd4e0d4d-628c-442b-9369-7a6fde1b94be
 [plugins]

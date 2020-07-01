@@ -40,7 +40,7 @@ fi
 [[ "$#" -ne 1 ]] && usage
 
 OS=$(uname)
-JSON="$HOME/.config/Code - OSS/User/settings.json"
+JSON="$HOME/.config/Code/User/settings.json"
 SAVJSON="./settings_linux.json"
 
 # Mac settings
