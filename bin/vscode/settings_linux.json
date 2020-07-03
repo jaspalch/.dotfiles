@@ -1,6 +1,7 @@
 {
     "window.zoomLevel": 0,
 	"editor.fontSize": 12,
+    "editor.fontFamily": "'Hack'",
     "workbench.startupEditor": "newUntitledFile",
     "diffEditor.renderSideBySide": false,
     "editor.minimap.enabled": false,
@@ -9,7 +10,7 @@
     "gitlens.currentLine.enabled": false,
     "files.insertFinalNewline": true,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Andromeda Colorizer",
+    "workbench.colorTheme": "Andromeda",
     "workbench.editor.showTabs": true,
 
     "vim.leader": "<space>",

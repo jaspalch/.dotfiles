@@ -1,5 +1,6 @@
 [global_config]
   handle_size = 4
+  borderless = True
   extra_styling = False
   title_transmit_bg_color = "#204a87"
   enabled_plugins = ActivityWatch, TerminalShot, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
@@ -25,10 +26,10 @@
     visible_bell = True
     icon_bell = False
     background_color = "#2d2d2d"
-    background_darkness = 0.85
+    background_darkness = 0.95
     background_type = transparent
     cursor_color = "#87d3c4"
-    font = Hack 10
+    font = Hack 11
     foreground_color = "#35b1d2"
     show_titlebar = False
     scrollbar_position = hidden

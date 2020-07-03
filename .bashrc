@@ -27,6 +27,7 @@ elif [[ "$OS" == 'Darwin' ]]; then
     sed -i 's/jaspalch95@gmail.com/jchauhan@cloudian.com/' ~/.gitconfig
 fi
 
+export EDITOR=vim
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -la'
