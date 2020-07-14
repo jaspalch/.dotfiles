@@ -8,7 +8,7 @@
 OS=$(uname)
 HOSTNAME=$(hostname)
 
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export PS1="\[\e[36m\]\u\[\e[m\]\[\e[32;40m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\]\[\e[32m\][\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[31m\]=>\[\e[m\] "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
