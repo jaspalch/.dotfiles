@@ -1,12 +1,14 @@
 [global_config]
   handle_size = 4
+  geometry_hinting = True
+  borderless = True
   extra_styling = False
   title_transmit_bg_color = "#204a87"
   enabled_plugins = ActivityWatch, TerminalShot, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
   suppress_multiple_term_dialog = True
   always_split_with_profile = True
   title_use_system_font = False
-  title_font = Hack Bold 9
+  title_font = Roboto Mono 10
 [keybindings]
   new_tab = <Alt>t
   cycle_next = <Alt>k
@@ -17,17 +19,19 @@
   prev_tab = <Shift><Alt>j
 [profiles]
   [[default]]
+    allow_bold = False
     cursor_color = "#aaaaaa"
     font = Hack 11
+    show_titlebar = False
     use_system_font = False
   [[Slate]]
     visible_bell = True
     icon_bell = False
     background_color = "#2d2d2d"
-    background_darkness = 0.85
+    background_darkness = 1.0
     background_type = transparent
     cursor_color = "#87d3c4"
-    font = Hack 10
+    font = Hack 11
     foreground_color = "#35b1d2"
     show_titlebar = False
     scrollbar_position = hidden
@@ -39,6 +43,7 @@
     cursor_color = "#b9b9b9"
     font = Hack 11
     foreground_color = "#d6dbe5"
+    show_titlebar = False
     palette = "#1f1f1f:#f81118:#2dc55e:#ecba0f:#2a84d2:#4e5ab7:#1081d6:#d6dbe5:#d6dbe5:#de352e:#1dd361:#f3bd09:#1081d6:#5350b9:#0f7ddb:#ffffff"
     use_system_font = False
 [layouts]
