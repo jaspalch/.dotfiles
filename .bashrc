@@ -21,10 +21,14 @@ grep -q 'email = ' ~/.gitconfig &>/dev/null || \
 #OS specific settings
 if [[ "$OS" == 'Linux' ]]; then
     :
-elif [[ "$OS" == 'Darwin' ]] || [[ "$HOSTNAME" == 'jaspal-desktop' ]]; then
+elif [[ "$OS" == 'Darwin' ]]; then
     PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
     alias vim="/usr/local/bin/vim"
+fi
+
+# Work settings
+if [[ "$OS" == 'Darwin' ]] || [[ "$HOSTNAME" == 'jaspal-desktop' ]]; then
     sed -i 's/jaspalch95@gmail.com/jchauhan@cloudian.com/' ~/.gitconfig
 fi
 
