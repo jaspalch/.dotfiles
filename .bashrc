@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 OS=$(uname)
+HOSTNAME=$(hostname)
 
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
@@ -20,7 +21,7 @@ grep -q 'email = ' ~/.gitconfig &>/dev/null || \
 #OS specific settings
 if [[ "$OS" == 'Linux' ]]; then
     :
-elif [[ "$OS" == 'Darwin' ]]; then
+elif [[ "$OS" == 'Darwin' ]] || [[ "$HOSTNAME" == 'jaspal-desktop' ]]; then
     PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
     alias vim="/usr/local/bin/vim"
