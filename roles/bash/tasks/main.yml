@@ -1,0 +1,21 @@
+- name: "Deploy ~/.bashrc"
+  file:
+    src: "{{ dotfiles_home }}/roles/bash/files/bashrc"
+    dest: "{{ user_home }}/.bashrc"
+    state: "link"
+    force: yes
+- name: "Deploy ~/.bash_profile"
+  file:
+    src: "{{ dotfiles_home }}/roles/bash/files/bash_profile"
+    dest: "{{ user_home }}/.bash_profile"
+    state: "link"
+    force: yes
+- name: "Deploy ~/.os.bashrc"
+  file:
+    src: "{{ dotfiles_home }}/roles/bash/files/os.bashrc"
+    dest: "{{ user_home }}/.os.bashrc"
+    state: "link"
+    force: yes
+
+- import_tasks: work.yml
+  when: host_type == 'work'

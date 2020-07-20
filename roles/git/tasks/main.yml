@@ -1,0 +1,9 @@
+- set_fact: 
+    srcfile: "{{ 'work-gitconfig' if host_type == 'work' else 'personal-gitconfig' }}"
+
+- name: "Deploy ~/.gitconfig"
+  file:
+    src: "{{ dotfiles_home }}/roles/git/files/{{ srcfile }}"
+    dest: "{{ user_home }}/.gitconfig"
+    state: "link"
+    force: yes

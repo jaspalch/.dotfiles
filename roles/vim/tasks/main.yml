@@ -1,0 +1,6 @@
+- name: "Deploy ~/.vimrc"
+  file:
+    src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
+    dest: "{{ user_home }}/.vimrc"
+    state: "link"
+    force: yes

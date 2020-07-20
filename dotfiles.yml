@@ -1,0 +1,11 @@
+- name: "Deploy dotfiles"
+  hosts: "local"
+  roles:
+    - role: "git"
+      tags: ["git"]
+    - role: "bin"
+      tags: ["bin"]
+    - role: "bash"
+      tags: ["bash"]
+    - role: "vim"
+      tags: ["vim"]
