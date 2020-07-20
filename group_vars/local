@@ -5,9 +5,7 @@ dotfiles_home: "{{ user_home }}/.dotfiles"
 
 # Specify work/personal hosts
 work_hosts: 
-  - "Jaspals-Macbook-Pro"
+  - "Jaspals-Macbook-Pro.local"
   - "jaspal-desktop"
 personal_hosts: 
   - "photon"
-# Create var to define host type
-host_type: "{{ 'work' if inventory_hostname in work_hosts else 'personal' }}"
