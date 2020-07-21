@@ -303,3 +303,7 @@ set -g default-terminal "xterm-256color"
 
 # Source shortcuts
 if '[ -f ~/.shortcuts.tmux.conf ]' 'source ~/.shortcuts.tmux.conf'
+
+# Put status bar on top
+set-option -g status-position top
+
