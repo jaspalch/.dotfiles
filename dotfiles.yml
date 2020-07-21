@@ -11,3 +11,5 @@
       tags: ["bash"]
     - role: "vim"
       tags: ["vim"]
+    - role: "tmux"
+      tags: ["tmux"]

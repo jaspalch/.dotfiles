@@ -1,0 +1,25 @@
+# Choose shortcuts files based on OS type
+- set_fact: 
+    shortcuts_file: "{{ 'mac-shortcuts.tmux.conf' if os_type == 'Darwin' else 'linux-shortcuts.tmux.conf' }}"
+
+- name: "Deploy ~/.tmux.conf (from oh-my-tmux)"
+  file:
+    src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf"
+    dest: "{{ user_home }}/.tmux.conf"
+    state: "link"
+    force: yes
+- name: "Deploy ~/.tmux.conf.local (from oh-my-tmux)"
+  file:
+    src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf.local"
+    dest: "{{ user_home }}/.tmux.conf.local"
+    state: "link"
+    force: yes
+- name: "Deploy ~/.shortcuts.tmux.conf"
+  file:
+    src: "{{ dotfiles_home }}/roles/tmux/files/{{ shortcuts_file }}"
+    dest: "{{ user_home }}/.shortcuts.tmux.conf"
+    state: "link"
+    force: yes
+
+
+
