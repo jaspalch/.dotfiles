@@ -1,0 +1,7 @@
+- name: "Deploy ~/.alacritty.yml"
+  file:
+    src: "{{ dotfiles_home }}/roles/terminal/files/alacritty.yml"
+    dest: "{{ user_home }}/.alacritty.yml"
+    state: "link"
+    force: yes
+
