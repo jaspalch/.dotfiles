@@ -13,5 +13,3 @@
       tags: ["vim"]
     - role: "tmux"
       tags: ["tmux"]
-    - role: "terminal"
-      tags: ["terminal"]
