@@ -1,8 +1,6 @@
 - name: "Deploy dotfiles"
   hosts: "local"
   roles:
-    - role: "vars"
-      tags: ["vars"]
     - role: "git"
       tags: ["git"]
     - role: "bin"
