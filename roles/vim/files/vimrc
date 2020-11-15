@@ -27,6 +27,7 @@ Plug 'dracula/vim'
 Plug 'GertjanReynaert/cobalt2-vim-theme'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'jiangmiao/auto-pairs'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 " Initialize plugin system
 call plug#end()
@@ -178,3 +179,6 @@ let g:rg_highlight = 'true'
 set background=dark
 set termguicolors
 
+"" markdown preview settings
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Chromium'
