@@ -1,13 +1,11 @@
 - name: "Get actual hostname"
   command: "uname -n"
   register: "hostname_cmd"
-- set_fact:
-    host_type: "{{ 'work' if hostname_cmd.stdout in work_hosts else 'personal' }}" 
 
 - name: "Get OS type"
-  command: "uname -o"
+  command: "uname"
   register: "os_cmd"
+
 - set_fact:
     os_type: "{{ os_cmd.stdout }}"
     host_type: "{{ 'work' if hostname_cmd.stdout in work_hosts else 'personal' }}" 
-

@@ -1,0 +1,2 @@
+- import_tasks: awesome.yml
+  when: host_type == 'personal' and os_type == 'Linux'
