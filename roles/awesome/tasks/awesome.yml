@@ -1,6 +1,0 @@
-- name: "Deploy ~/.config/awesome/"
-  file:
-    src: "{{ dotfiles_home }}/roles/awesome/files/"
-    dest: "{{ user_home }}/.config/awesome"
-    state: "link"
-    force: yes

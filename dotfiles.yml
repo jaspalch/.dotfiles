@@ -13,5 +13,5 @@
       tags: ["vim"]
     - role: "tmux"
       tags: ["tmux"]
-    - role: "awesome"
-      tags: ["awesome"]
+    - role: "wm"
+      tags: ["wm"]
