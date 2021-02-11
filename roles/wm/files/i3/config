@@ -14,7 +14,7 @@ set $mod Mod4
 ### THEME ###
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:SF Pro Rounded Bold 11
+font pango:Roboto Bold 11
 
 ### Borders
 for_window [class="^.*"] border pixel 2
@@ -23,7 +23,7 @@ client.focused_inactive #000000 #000000 #aa0000 #aa0000 #000000
 client.unfocused $unfocused $unfocused #444444 $unfocused $unfocsued
 
 set $focused #009999
-client.focused $focused $focused #111111 #aa0000 $focused
+client.focused $focused $focused #111111 #0044CC $focused
 
 # Gaps
 # Change gap size
@@ -40,34 +40,34 @@ gaps inner 6
 ### AUTOSTART ###
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 001122
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 001122
 
 exec_always --no-startup-id picom &
 exec_always --no-startup-id nitrogen --restore
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
-exec_always --no-startup-id xrdb ~/.Xresources
+# exec_always --no-startup-id xrdb ~/.Xresources
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 ### KEYBINDINGS ###
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Backlight
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # scrot
-bindsym Print exec --no-startup-id mkdir -p ~/Pictures/scrot && scrot ~/Pictures/scrot/$(date +%F_%T).png
-bindsym $mod+Print exec --no-startup-id mkdir -p ~/Pictures/scrot && sleep 0.2 && scrot -s ~/Pictures/scrot/$(date +%F_%T).png
+#bindsym Print exec --no-startup-id mkdir -p ~/Pictures/scrot && scrot ~/Pictures/scrot/$(date +%F_%T).png
+#bindsym $mod+Print exec --no-startup-id mkdir -p ~/Pictures/scrot && sleep 0.2 && scrot -s ~/Pictures/scrot/$(date +%F_%T).png
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

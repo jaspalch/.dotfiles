@@ -1,21 +1,7 @@
-- name: "Deploy awesome configs"
-  file:
-    src: "{{ dotfiles_home }}/roles/wm/files/awesome/"
-    dest: "{{ user_home }}/.config/awesome"
-    state: "link"
-    force: yes
-
 - name: "Deploy i3 configs"
   file:
     src: "{{ dotfiles_home }}/roles/wm/files/i3/"
     dest: "{{ user_home }}/.config/i3"
-    state: "link"
-    force: yes
-
-- name: "Deploy Xresources"
-  file:
-    src: "{{ dotfiles_home }}/roles/wm/files/Xresources"
-    dest: "{{ user_home }}/.Xresources"
     state: "link"
     force: yes
 
