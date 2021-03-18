@@ -28,6 +28,8 @@ Plug 'GertjanReynaert/cobalt2-vim-theme'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'jiangmiao/auto-pairs'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'joshdick/onedark.vim'
+Plug 'rafi/awesome-vim-colorschemes'
 
 " Initialize plugin system
 call plug#end()
@@ -136,3 +138,6 @@ set termguicolors
 "" markdown preview settings
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Chromium'
+
+"" Terminal shortcut
+:tnoremap <Esc> <C-\><C-n>
