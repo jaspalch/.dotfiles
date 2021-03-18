@@ -4,3 +4,10 @@
     dest: "{{ user_home }}/.vimrc"
     state: "link"
     force: yes
+
+- name: "Deploy ~/.config/nvim/init.vim"
+  file:
+    src: "{{ dotfiles_home }}/roles/vim/files/init.vim"
+    dest: "{{ user_home }}/.config/nvim/init.vim"
+    state: "link"
+    force: yes
