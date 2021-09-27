@@ -8,35 +8,31 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
 
-;; Random settings
-(setq inhibit-splash-screen t
-      inhibit-startup-message t
-      inhibit-startup-echo-area-message t)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
-
-(setq tab-width 4)
-(setq tramp-default-method "sshx")
-(setq tramp-syntax 'simplified)
-(set-face-attribute 'default nil :height 145)
-
 ;; Set package archives
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-;; Always check if use-package is installed
+;; Bootstrap use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Specify packages
+;; Install and configure packages
 (use-package diminish
   :ensure t)
+
+(use-package spacemacs-theme
+  :ensure t
+  :defer t)
+
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
 
 (use-package evil
   :ensure t
@@ -58,7 +54,7 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :defer t
+  :demand t
   :config
   (projectile-mode))
 
@@ -67,10 +63,12 @@
   :defer t
   :diminish which-key-mode
   :config
-  (which-key-mode))
+  (which-key-mode)
+  (which-key-setup-side-window-bottom))
 
 (use-package helm
   :ensure t
+  :demand t
   :diminish helm-mode
   :commands helm-mode
   :config
@@ -87,3 +85,90 @@
   :diminish flycheck-mode
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
+
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+
+;; BREAKS STUFF. modified files won't open in tramp
+;;(use-package git-gutter
+  ;;:ensure t
+  ;;:config
+  ;;(global-git-gutter-mode +1))
+
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-diff-hl-mode))
+
+(use-package go-mode
+  :ensure t
+  :config
+  (add-hook 'go-mode-hook 'lsp-deferred))
+
+(use-package neotree
+  :ensure t)
+
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme))
+
+;; Random settings
+(setq inhibit-splash-screen t
+      inhibit-startup-message t
+      inhibit-startup-echo-area-message t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
+(setq tab-width 4)
+;;(setq tramp-default-method "sshx")
+;;(setq tramp-syntax 'simplified)
+(set-face-attribute 'default nil :height 145)
+
+;; Set theme
+(load-theme 'doom-city-lights)
+
+;;Set font
+(set-frame-font "Fira Code 12" nil t)
+
+;; Random helpers
+(defun my-open-init-file ()
+  "Open the init file."
+  (interactive)
+  (find-file user-init-file))
+
+;; Keybindings
+(use-package general
+  :ensure t
+  :config
+  (general-define-key
+	;; :prefix leader
+	:states '(normal insert emacs)
+	:keymaps 'override
+	:prefix "SPC"
+	:non-normal-prefix "M-SPC"
+	;; Files
+	"f" '(:ignore t :which-key "Files")
+	"f o" '(find-file :which-key "Find files")
+	"f s" '(save-buffer :which-key "Save buffer")
+	"f i" '(my-open-init-file :which-key "Open init.el")
+	"f D" '(j/delete-file-and-buffer :which-key "Delete file and buffer")
+	"f S" '(write-file :which-key "write-file")
+	;; Buffers
+	"b" '(:ignore t :which-key "Buffers")
+	"b j" '(next-buffer :which-key "Next buffer")
+	"b k" '(previous-buffer :which-key "Previous buffer")
+	"b d" '(kill-current-buffer :which-key "Kill buffer")
+	"b l" '(helm-buffers-list :which-key "List buffers")
+	"b w" '(save-buffer :which-key "Save buffer")
+	;; Projectile
+	"p" '(projectile-command-map :which-key "projectile")
+	"t" '(neotree-toggle :which-key "projectile")
+	))
+
+ (which-key-setup-side-window-bottom)

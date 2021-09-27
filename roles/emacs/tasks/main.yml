@@ -1,0 +1,14 @@
+- name: "Deploy init.el"
+  file:
+    src: "{{ dotfiles_home }}/roles/emacs/files/init.el"
+    dest: "{{ user_home }}/.emacs.d/init.el"
+    state: "link"
+    force: yes
+
+- name: "Deploy custom.el"
+  file:
+    src: "{{ dotfiles_home }}/roles/emacs/files/custom.el"
+    dest: "{{ user_home }}/.emacs.d/custom.el"
+    state: "link"
+    force: yes
+
