@@ -19,7 +19,11 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Install and configure packages
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
+;; PACKAGES
+
 (use-package diminish
   :ensure t)
 
@@ -30,7 +34,6 @@
 (use-package doom-themes
   :ensure t
   :config
-  ;; Global settings (defaults)
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
 
@@ -91,6 +94,9 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
 
+(use-package vterm
+    :ensure t)
+
 ;; BREAKS STUFF. modified files won't open in tramp
 ;;(use-package git-gutter
   ;;:ensure t
@@ -115,12 +121,31 @@
   :config
   (powerline-default-theme))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (setq exec-path-from-shell-arguments '("-l"))
+  (when (memq window-system '(mac ns x))
+	(exec-path-from-shell-initialize)))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
+;; END PACKAGES
+
 ;; Random settings
 (setq inhibit-splash-screen t
       inhibit-startup-message t
       inhibit-startup-echo-area-message t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(global-auto-revert-mode t)
 
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
@@ -130,11 +155,22 @@
 ;;(setq tramp-syntax 'simplified)
 (set-face-attribute 'default nil :height 145)
 
+ ;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;; Always follow symlinks
+(setq vc-follow-symlinks t)
+
+;; Set dir for backups
+(setq backup-directory-alist `(("." . "~/.saves")))
+
 ;; Set theme
-(load-theme 'doom-city-lights)
+(load-theme 'doom-vibrant t)
 
 ;;Set font
 (set-frame-font "Fira Code 12" nil t)
+(when (string-equal system-type "darwin" )
+  (set-frame-font "Menlo 15" nil t))
 
 ;; Random helpers
 (defun my-open-init-file ()
@@ -152,23 +188,28 @@
 	:keymaps 'override
 	:prefix "SPC"
 	:non-normal-prefix "M-SPC"
+
 	;; Files
 	"f" '(:ignore t :which-key "Files")
-	"f o" '(find-file :which-key "Find files")
+	"f o" '(projectile-find-file :which-key "Find files")
 	"f s" '(save-buffer :which-key "Save buffer")
 	"f i" '(my-open-init-file :which-key "Open init.el")
 	"f D" '(j/delete-file-and-buffer :which-key "Delete file and buffer")
 	"f S" '(write-file :which-key "write-file")
+
 	;; Buffers
 	"b" '(:ignore t :which-key "Buffers")
 	"b j" '(next-buffer :which-key "Next buffer")
 	"b k" '(previous-buffer :which-key "Previous buffer")
 	"b d" '(kill-current-buffer :which-key "Kill buffer")
 	"b l" '(helm-buffers-list :which-key "List buffers")
-	"b w" '(save-buffer :which-key "Save buffer")
-	;; Projectile
+	"w" '(save-buffer :which-key "Save buffer")
+
+	;; Other
 	"p" '(projectile-command-map :which-key "projectile")
-	"t" '(neotree-toggle :which-key "projectile")
+	"t" '(neotree-toggle :which-key "Toggle neotree")
+	"g" '(magit :which-key "Open magit")
+	"x" '(helm-M-x :which-key "Run helm-M-x")
 	))
 
  (which-key-setup-side-window-bottom)
