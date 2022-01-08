@@ -52,7 +52,8 @@
   (evil-collection-init))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :custom (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 (use-package projectile
   :ensure t
@@ -135,7 +136,15 @@
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :config
+  (custom-set-faces
+	'(mode-line ((t (:family my-font-family :height 0.9))))
+	'(mode-line-inactive ((t (:family my-font-family :height 0.9)))))
+  (when (string-equal system-type "darwin")
+  	(custom-set-faces
+		'(mode-line ((t (:family my-font-family :height 1))))
+		'(mode-line-inactive ((t (:family my-font-family :height 1)))))))
+
 
 ;; END PACKAGES
 
@@ -168,9 +177,13 @@
 (load-theme 'doom-vibrant t)
 
 ;;Set font
-(set-frame-font "Fira Code 12" nil t)
+(defvar my-font-family "Fira Code" "Font family to be used within Emacs.")
+(defvar my-font-size "12" "Font size to be used within Emacs.")
 (when (string-equal system-type "darwin" )
-  (set-frame-font "Menlo 15" nil t))
+  (setq my-font-family "Menlo")
+  (setq my-font-size "15"))
+
+(set-frame-font (concat my-font-family " " my-font-size) nil t)
 
 ;; Random helpers
 (defun my-open-init-file ()
