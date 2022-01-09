@@ -147,6 +147,9 @@
 		'(mode-line ((t (:family my-font-family :height 1))))
 		'(mode-line-inactive ((t (:family my-font-family :height 1)))))))
 
+;; Colorful dired
+(use-package diredfl
+  :init (diredfl-global-mode 1))
 
 ;; END PACKAGES
 
@@ -161,7 +164,7 @@
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
-(setq tab-width 4)
+(setq-default tab-width 4)
 ;;(setq tramp-default-method "sshx")
 ;;(setq tramp-syntax 'simplified)
 (set-face-attribute 'default nil :height 145)
@@ -217,14 +220,16 @@
 	"b j" '(next-buffer :which-key "Next buffer")
 	"b k" '(previous-buffer :which-key "Previous buffer")
 	"b d" '(kill-current-buffer :which-key "Kill buffer")
-	"b l" '(helm-buffers-list :which-key "List buffers")
 	"w" '(save-buffer :which-key "Save buffer")
 
 	;; Other
+	"d" '(dired :which-key "dired")
 	"p" '(projectile-command-map :which-key "projectile")
 	"t" '(neotree-toggle :which-key "Toggle neotree")
 	"g" '(magit :which-key "Open magit")
 	"x" '(helm-M-x :which-key "Run helm-M-x")
+	"x" '(helm-M-x :which-key "Run helm-M-x")
+	"SPC" '(helm-buffers-list :which-key "List buffers")
 	))
 
  (which-key-setup-side-window-bottom)
