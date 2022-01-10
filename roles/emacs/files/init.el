@@ -182,6 +182,7 @@
   :ensure t
   :init (doom-modeline-mode 1)
   :config
+  (setq column-number-mode t)
   (custom-set-faces
 	'(mode-line ((t (:family my-font-family :height 0.9))))
 	'(mode-line-inactive ((t (:family my-font-family :height 0.9)))))
@@ -292,6 +293,7 @@
 	"p" '(projectile-command-map :which-key "projectile")
 	"t" '(neotree-toggle :which-key "Toggle neotree")
 	"g" '(magit :which-key "Open magit")
+	"v" '(vterm :which-key "Open vterm")
 	"x" '(helm-M-x :which-key "Run helm-M-x")
 	"SPC" '(helm-buffers-list :which-key "List buffers")
 	))
