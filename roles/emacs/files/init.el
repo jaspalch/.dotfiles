@@ -52,13 +52,16 @@
   (evil-collection-init))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 (use-package projectile
   :ensure t
   :diminish projectile-mode
   :demand t
   :config
+  (setq projectile-mode-line "Projectile")
   (projectile-mode))
 
 (use-package which-key
