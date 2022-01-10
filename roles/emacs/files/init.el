@@ -188,8 +188,8 @@
 	'(mode-line-inactive ((t (:family my-font-family :height 0.9)))))
   (when (string-equal system-type "darwin")
   	(custom-set-faces
-		'(mode-line ((t (:family my-font-family :height 1))))
-		'(mode-line-inactive ((t (:family my-font-family :height 1)))))))
+		'(mode-line ((t (:family my-font-family :height 1.05))))
+		'(mode-line-inactive ((t (:family my-font-family :height 1.05)))))))
 
 (use-package all-the-icons)
 
@@ -253,7 +253,7 @@
 (defvar my-font-size "11" "Font size to be used within Emacs.")
 (when (string-equal system-type "darwin" )
   (setq my-font-family "Menlo")
-  (setq my-font-size "15"))
+  (setq my-font-size "16"))
 
 (set-frame-font (concat my-font-family " " my-font-size) nil t)
 
