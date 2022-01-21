@@ -121,6 +121,8 @@
   :config
   (helm-mode))
 
+(use-package helm-swoop)
+
 (use-package company
   :ensure t
   :diminish company-mode
@@ -218,6 +220,17 @@
   (setq dashboard-set-file-icons t)
   (dashboard-setup-startup-hook))
 
+(use-package perspective
+  :config
+  (persp-mode))
+
+(use-package multi-vterm)
+
+(use-package web-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . web-mode)))
+
 ;; END PACKAGES
 
 ;; Random settings
@@ -246,7 +259,7 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; Set theme
-(load-theme 'doom-vibrant t)
+(load-theme 'doom-outrun-electric t)
 
 ;;Set font
 (defvar my-font-family "Fira Code" "Font family to be used within Emacs.")
@@ -288,14 +301,24 @@
 	"b d" '(kill-current-buffer :which-key "Kill buffer")
 	"w" '(save-buffer :which-key "Save buffer")
 
+	;; vterm
+	"v" '(:ignore t :which-key "vterm")
+	"v v" '(multi-vterm :which-key "multi-vterm")
+	"v j" '(multi-vterm-next :which-key "multi-vterm next")
+	"v k" '(multi-vterm-previous :which-key "multi-vterm previous")
+
+	;; Search
+	"F" '(:ignore t :which-key "Search")
+	"F f" '( :which-key "find in file")
+
 	;; Other
 	"d" '(dired :which-key "dired")
 	"p" '(projectile-command-map :which-key "projectile")
 	"t" '(neotree-toggle :which-key "Toggle neotree")
 	"g" '(magit :which-key "Open magit")
-	"v" '(vterm :which-key "Open vterm")
 	"x" '(helm-M-x :which-key "Run helm-M-x")
 	"SPC" '(helm-buffers-list :which-key "List buffers")
+	"TAB" '(perspective-map :which-key "perspective")
 	))
 
  (which-key-setup-side-window-bottom)
