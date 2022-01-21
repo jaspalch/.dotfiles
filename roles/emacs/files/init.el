@@ -190,8 +190,8 @@
 	'(mode-line-inactive ((t (:family my-font-family :height 0.9)))))
   (when (string-equal system-type "darwin")
   	(custom-set-faces
-		'(mode-line ((t (:family my-font-family :height 1.05))))
-		'(mode-line-inactive ((t (:family my-font-family :height 1.05)))))))
+		'(mode-line ((t (:family my-font-family :height 0.95))))
+		'(mode-line-inactive ((t (:family my-font-family :height 0.95)))))))
 
 (use-package all-the-icons)
 
@@ -231,6 +231,8 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . web-mode)))
 
+(use-package kaolin-themes)
+
 ;; END PACKAGES
 
 ;; Random settings
@@ -259,7 +261,7 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; Set theme
-(load-theme 'doom-outrun-electric t)
+(load-theme 'kaolin-bubblegum t)
 
 ;;Set font
 (defvar my-font-family "Fira Code" "Font family to be used within Emacs.")
