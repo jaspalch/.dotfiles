@@ -42,6 +42,7 @@
   :ensure t
   :init (doom-modeline-mode 1)
   :config
+  (setq doom-modeline-vcs-max-length 30)
   (setq column-number-mode t)
   (custom-set-faces
 	'(mode-line ((t (:family my-font-family :height 0.9))))
