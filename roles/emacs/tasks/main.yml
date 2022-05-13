@@ -5,10 +5,10 @@
     state: "link"
     force: yes
 
-- name: "Deploy custom.el"
+- name: "Deploy lisp/ dir"
   file:
-    src: "{{ dotfiles_home }}/roles/emacs/files/custom.el"
-    dest: "{{ user_home }}/.emacs.d/custom.el"
+    src: "{{ dotfiles_home }}/roles/emacs/files/lisp"
+    dest: "{{ user_home }}/.emacs.d/lisp"
     state: "link"
     force: yes
 
