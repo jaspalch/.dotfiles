@@ -21,7 +21,7 @@
 	;; Files
 	"f" '(:ignore t :which-key "Files")
 	"f o" '(projectile-find-file :which-key "Find files")
-	"f i" '(my-open-init-file :which-key "Open init.el")
+	"f i" '(my/open-init-file :which-key "Open init.el")
 	"f D" '(j/delete-file-and-buffer :which-key "Delete file and buffer")
 	"f S" '(write-file :which-key "write-file")
 
@@ -39,8 +39,10 @@
 	"v k" '(multi-vterm-previous :which-key "multi-vterm previous")
 
 	;; Search
-	"F" '((deadgrep-kill-all-buffers):ignore t :which-key "Search")
-	"F f" '( :which-key "find in file")
+	"s" '(:ignore t :which-key "Search/Replace")
+	"s s" '(my/open-deadgrep :which-key "deadgrep")
+	"s r" '(query-replace :which-key "query-replace")
+	"s R" '(query-replace-regexp :which-key "query-replace-regexp")
 
 	;; Other
 	"d" '(dired :which-key "dired")
@@ -52,11 +54,11 @@
 	"TAB" '(perspective-map :which-key "perspective")
 	))
 
+;; which-key needs to be setup after keybindings are defined
+(which-key-setup-side-window-bottom)
+
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;; Which-key
-(which-key-setup-side-window-bottom)
 
 (provide 'init-keybindings)
 

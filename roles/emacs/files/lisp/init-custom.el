@@ -8,7 +8,7 @@
 (require `init-ide)
 
 ;; Random helpers
-(defun my-open-init-file ()
+(defun my/open-init-file ()
   "Open the init file."
   (interactive)
   (find-file user-init-file))

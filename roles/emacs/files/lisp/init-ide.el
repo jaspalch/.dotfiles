@@ -18,7 +18,9 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 
-(use-package deadgrep)
+(use-package deadgrep
+  :config
+  (setq deadgrep-display-buffer-function 'switch-to-buffer))
 
 (provide 'init-ide)
 
