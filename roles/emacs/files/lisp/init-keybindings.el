@@ -50,6 +50,7 @@
 	"t" '(neotree-toggle :which-key "Toggle neotree")
 	"g" '(magit :which-key "Open magit")
 	"x" '(helm-M-x :which-key "Run helm-M-x")
+	"l" '(lsp-command-map :which-key "lsp")
 	"SPC" '(helm-buffers-list :which-key "List buffers")
 	"TAB" '(perspective-map :which-key "perspective")
 	))
