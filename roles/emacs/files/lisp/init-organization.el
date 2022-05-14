@@ -28,7 +28,10 @@
 (use-package helm-swoop)
 
 (use-package perspective
+  :init
+  (add-hook 'kill-emacs-hook #'persp-state-save)
   :config
+  (setq persp-state-default-file (expand-file-name ".persp-state" user-emacs-directory))
   (persp-mode))
 
 (provide 'init-organization)
