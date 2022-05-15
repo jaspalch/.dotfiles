@@ -1,14 +1,5 @@
-- name: "Deploy init.el"
-  file:
-    src: "{{ dotfiles_home }}/roles/emacs/files/init.el"
-    dest: "{{ user_home }}/.emacs.d/init.el"
-    state: "link"
-    force: yes
-
-- name: "Deploy lisp/ dir"
-  file:
-    src: "{{ dotfiles_home }}/roles/emacs/files/lisp"
-    dest: "{{ user_home }}/.emacs.d/lisp"
-    state: "link"
-    force: yes
-
+- name: "Clone emacs.d"
+  ansible.builtin.git:
+    repo: 'https://github.com/jaswraith/emacs.d.git'
+    dest: "{{ user_home }}/.emacs.d/"
+    update: no
