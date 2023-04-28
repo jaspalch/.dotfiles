@@ -9,8 +9,8 @@
       tags: ["bin"]
     - role: "bash"
       tags: ["bash"]
-    - role: "vim"
-      tags: ["vim"]
+    - role: "nvim"
+      tags: ["nvim"]
     - role: "tmux"
       tags: ["tmux"]
     - role: "wm"

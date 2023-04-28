@@ -16,13 +16,18 @@ alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -la'
 alias ols="ls -la --color | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
-alias vi="vim"
+alias vi="nvim"
 
 # Source OS, work specific settings
 [[ -f ~/.os.bashrc ]] && source ~/.os.bashrc
 [[ -f ~/.work.bashrc ]] && source ~/.work.bashrc
 
 # Start tmux
+DEFAULT_TMUX_SESSION='main'
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$INSIDE_EMACS" ]; then
-  exec tmux new-session
+	if tmux has-session -t "$DEFAULT_TMUX_SESSION"; then
+		tmux attach-session -t "$DEFAULT_TMUX_SESSION"
+	else
+		tmux new-session -s "$DEFAULT_TMUX_SESSION"
+	fi
 fi
