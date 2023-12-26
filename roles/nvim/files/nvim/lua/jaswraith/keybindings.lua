@@ -1,6 +1,3 @@
--- Set leader key
-vim.g.mapleader = ' '
-
 -- Keybindings
 local wk = require('which-key')
 local ts = require('telescope.builtin')
@@ -34,9 +31,15 @@ wk.register({
     g = { ng.open, "neogit" },
   },
 
+  ["<leader>r"] = {
+    name = "Random Stuff",
+    s = { function() vim.cmd('set list!') end, "Toggle whitespace chars" },
+  },
+
   -- Top level bindings
   ["<leader>w"] = { function() vim.cmd('w') end, "Write buffer" },
   ["<leader><space>"] = { ts.buffers, "Find buffer" },
   ["<leader>x"] = { ts.command_history, "Commands" },
-  ["<leader>t"] = { function() vim.cmd('NvimTreeToggle') end, "nvim-tree" },
+  ["<leader>t"] = { function() vim.cmd('NvimTreeToggle') end, "Toggle nvim-tree" },
+  ["<leader>l"] = { function() vim.cmd('Lazy') end, "Open lazy.nvim" },
 })

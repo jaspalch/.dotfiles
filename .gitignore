@@ -1,0 +1,3 @@
+# nvim stuff
+roles/nvim/files/nvim/lazy-lock.json
+roles/nvim/files/nvim/*.log

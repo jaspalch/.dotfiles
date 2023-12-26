@@ -43,9 +43,22 @@ vim.opt.mat = 2
 ---- Set Unix EOL chars as default
 vim.opt.fileformats = 'unix,dos,mac'
 
+---- Set listchars for viewing whitespace
+vim.opt.listchars = {
+    eol = '$',
+    tab = '>-',
+    trail = '~',
+    extends = '>',
+    precedes = '<',
+    space = '␣',
+}
+
 ---- Disable backups
 vim.opt.wb = false
 vim.opt.swapfile = false
 
 -- Enable 24 bit colors
 vim.opt.termguicolors = true
+
+-- Set leader key
+vim.g.mapleader = ' '

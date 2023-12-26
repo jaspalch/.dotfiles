@@ -1,4 +1,4 @@
-require('opts')
-require('plugins')
-require('keybindings')
+require('jaswraith.opts')
+require('jaswraith/lazy_init')
+require('jaswraith/keybindings')
 
