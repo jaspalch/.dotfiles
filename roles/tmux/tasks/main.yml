@@ -8,6 +8,7 @@
     state: directory
   loop:
     - { path: '.config/tmux' }
+    - { path: '.config/tmux/themes' }
     - { path: '.config/tmux/plugins/tpm' }
 
 
@@ -23,5 +24,11 @@
     src: "{{ dotfiles_home }}/roles/tmux/files/tmux.conf"
     dest: "{{ user_home }}/.config/tmux/tmux.conf"
     state: "link"
+    force: yes
+
+- name: "Deploy tmux tokyonight theme"
+  copy:
+    src: "{{ dotfiles_home }}/roles/tmux/files/tokyonight_storm.tmux"
+    dest: "{{ user_home }}/.config/tmux/themes/tokyonight_storm.tmux"
     force: yes
 
