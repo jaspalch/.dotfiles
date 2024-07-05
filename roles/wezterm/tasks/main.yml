@@ -1,0 +1,14 @@
+- name: "Create wezterm config directory"
+  file:
+    path: "{{ user_home }}/{{ item.path }}"
+    state: directory
+  loop:
+    - { path: '.config/wezterm' }
+
+- name: "Deploy wezterm.lua"
+  file:
+    src: "{{ dotfiles_home }}/roles/wezterm/files/wezterm.lua"
+    dest: "{{ user_home }}/.config/wezterm/wezterm.lua"
+    state: "link"
+    force: yes
+
