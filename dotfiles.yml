@@ -17,3 +17,5 @@
       tags: ["wm"]
     - role: "emacs"
       tags: ["emacs"]
+    - role: "wezterm"
+      tags: ["wezterm"]
