@@ -29,10 +29,10 @@ config.keys = {
     { mods = 'LEADER|SHIFT', key = '_', action = act.SplitPane { direction = 'Down' } },
 
     -- Move between panes
-    { mods = 'CTRL', key = 'j', action = act.ActivatePaneDirection 'Down' },
-    { mods = 'CTRL', key = 'k', action = act.ActivatePaneDirection 'Up' },
-    { mods = 'CTRL', key = 'l', action = act.ActivatePaneDirection 'Right' },
-    { mods = 'CTRL', key = 'h', action = act.ActivatePaneDirection 'Left' },
+    { mods = 'LEADER', key = 'j', action = act.ActivatePaneDirection 'Down' },
+    { mods = 'LEADER', key = 'k', action = act.ActivatePaneDirection 'Up' },
+    { mods = 'LEADER', key = 'l', action = act.ActivatePaneDirection 'Right' },
+    { mods = 'LEADER', key = 'h', action = act.ActivatePaneDirection 'Left' },
 
     -- Copy mode
     { mods = 'LEADER', key = 'v', action = act.ActivateCopyMode },
