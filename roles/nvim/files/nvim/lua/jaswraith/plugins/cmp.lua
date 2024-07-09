@@ -14,7 +14,7 @@ return {
             completion = {
                 completeopt = "menu,menuone,preview,noselect",
             },
-            
+
             mapping = cmp.mapping.preset.insert({
                 ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -26,7 +26,7 @@ return {
             }),
 
             sources = cmp.config.sources({
-                { name = "nvim_lsp"},
+                { name = "nvim_lsp" },
                 { name = "buffer" },
                 { name = "path" },
             }),
@@ -39,4 +39,4 @@ return {
             },
         })
     end,
-} 
+}

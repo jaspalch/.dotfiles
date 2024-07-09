@@ -4,12 +4,12 @@ return {
         vim.o.timeout = true
         vim.o.timeoutlen = 300
 
-        require("which-key").setup {
-        key_labels = {
-          ["<space>"] = "SPC",
-          ["<cr>"] = "RET",
-          ["<tab>"] = "TAB",
-        },
-      }
-    end
+        require("which-key").setup({
+            key_labels = {
+                ["<space>"] = "SPC",
+                ["<cr>"] = "RET",
+                ["<tab>"] = "TAB",
+            },
+        })
+    end,
 }
