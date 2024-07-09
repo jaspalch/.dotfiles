@@ -37,6 +37,8 @@ config.keys = {
     -- Copy mode
     { mods = 'LEADER', key = 'v', action = act.ActivateCopyMode },
 
+    -- Clear screen
+    { mods = 'LEADER|SHIFT', key = 'l', action = act.SendKey { key = 'l', mods = 'CTRL' }},
 }
 
 return config
