@@ -1,44 +1,47 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
 -- Font
-config.font = wezterm.font 'Fira Code'
+config.font = wezterm.font("Fira Code")
 config.font_size = 11
 
 -- Colorscheme
-local custom_nightfox = wezterm.color.get_builtin_schemes()['nightfox']
-custom_nightfox.background = '#0a111a'
+local custom_nightfox = wezterm.color.get_builtin_schemes()["nightfox"]
+custom_nightfox.background = "#0a111a"
 config.colors = custom_nightfox
 
 -- Keybindings
 
 ---- Set leader combo to CTRL-A
-config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
-    -- New tab
-    { mods = 'LEADER', key = 'c', action = act.SpawnTab 'CurrentPaneDomain' },
+	-- New tab
+	{ mods = "LEADER", key = "c", action = act.SpawnTab("CurrentPaneDomain") },
 
-    -- Cycle Tabs
-    { mods = 'LEADER|CTRL', key = 'l', action = act.ActivateTabRelative(1) },
-    { mods = 'LEADER|CTRL', key = 'h', action = act.ActivateTabRelative(-1) },
+	-- Cycle Tabs
+	{ mods = "LEADER|CTRL", key = "l", action = act.ActivateTabRelative(1) },
+	{ mods = "LEADER|CTRL", key = "h", action = act.ActivateTabRelative(-1) },
 
-    -- Vertical split
-    { mods = 'LEADER', key = '-', action = act.SplitPane { direction = 'Right' } },
-    -- Horizontal split
-    { mods = 'LEADER|SHIFT', key = '_', action = act.SplitPane { direction = 'Down' } },
+	-- Vertical split
+	{ mods = "LEADER", key = "-", action = act.SplitPane({ direction = "Right" }) },
+	-- Horizontal split
+	{ mods = "LEADER|SHIFT", key = "_", action = act.SplitPane({ direction = "Down" }) },
 
-    -- Move between panes
-    { mods = 'LEADER', key = 'j', action = act.ActivatePaneDirection 'Down' },
-    { mods = 'LEADER', key = 'k', action = act.ActivatePaneDirection 'Up' },
-    { mods = 'LEADER', key = 'l', action = act.ActivatePaneDirection 'Right' },
-    { mods = 'LEADER', key = 'h', action = act.ActivatePaneDirection 'Left' },
+	-- Move between panes
+	{ mods = "LEADER", key = "j", action = act.ActivatePaneDirection("Down") },
+	{ mods = "LEADER", key = "k", action = act.ActivatePaneDirection("Up") },
+	{ mods = "LEADER", key = "l", action = act.ActivatePaneDirection("Right") },
+	{ mods = "LEADER", key = "h", action = act.ActivatePaneDirection("Left") },
 
-    -- Copy mode
-    { mods = 'LEADER', key = 'v', action = act.ActivateCopyMode },
+	-- Copy mode
+	{ mods = "LEADER", key = "v", action = act.ActivateCopyMode },
 
-    -- Clear screen
-    { mods = 'LEADER|SHIFT', key = 'l', action = act.SendKey { key = 'l', mods = 'CTRL' }},
+	-- Clear screen
+	{ mods = "LEADER|SHIFT", key = "l", action = act.SendKey({ key = "l", mods = "CTRL" }) },
+
+	-- Send CTRL-a
+	{ mods = "LEADER|CTRL", key = "a", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 }
 
 return config
