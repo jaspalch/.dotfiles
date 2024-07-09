@@ -5,8 +5,10 @@
 # If not running interactively, do nothing
 [[ $- != *i* ]] && return
 
-export PS1="\[\e[36m\]\u\[\e[m\]\[\e[32;40m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\]\[\e[32m\][\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[31m\]=>\[\e[m\] "
-export CLICOLOR=1
+# Set prompt
+[[ -f ~/.config/bashrc/ps1.sh ]] && source ~/.config/bashrc/ps1.sh
+#PS1="$(_PS1)"
+
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=nvim
 
@@ -22,12 +24,3 @@ alias vi="nvim"
 [[ -f ~/.os.bashrc ]] && source ~/.os.bashrc
 [[ -f ~/.work.bashrc ]] && source ~/.work.bashrc
 
-# Start tmux
-## DEFAULT_TMUX_SESSION='main'
-## if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$INSIDE_EMACS" ]; then
-## 	if tmux has-session -t "$DEFAULT_TMUX_SESSION"; then
-## 		tmux attach-session -t "$DEFAULT_TMUX_SESSION"
-## 	else
-## 		tmux new-session -s "$DEFAULT_TMUX_SESSION"
-## 	fi
-## fi

@@ -1,7 +1,20 @@
+- name: "Create bashrc dir"
+  file:
+    path: "{{ user_home }}/{{ item.path }}"
+    state: directory
+  loop:
+    - { path: '.config/bashrc' }
+
 - name: "Deploy ~/.bashrc"
   file:
     src: "{{ dotfiles_home }}/roles/bash/files/bashrc"
     dest: "{{ user_home }}/.bashrc"
+    state: "link"
+    force: yes
+- name: "Deploy bashrc lib dir"
+  file:
+    src: "{{ dotfiles_home }}/roles/bash/files/bashrc_lib"
+    dest: "{{ user_home }}/.config/bashrc"
     state: "link"
     force: yes
 - name: "Deploy ~/.bash_profile"
