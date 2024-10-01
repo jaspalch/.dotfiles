@@ -4,12 +4,13 @@ local act = wezterm.action
 
 -- Font
 config.font = wezterm.font("Fira Code")
-config.font_size = 11
+config.font_size = 12
 
 -- Colorscheme
-local custom_nightfox = wezterm.color.get_builtin_schemes()["nightfox"]
-custom_nightfox.background = "#0a111a"
-config.colors = custom_nightfox
+config.color_scheme = "Custom Eldritch"
+
+-- Window decorations
+config.window_decorations = "RESIZE"
 
 -- Keybindings
 
