@@ -1,2 +1,0 @@
-- import_tasks: wm.yml
-  when: host_type == 'personal' and os_type == 'Linux'

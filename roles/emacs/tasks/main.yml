@@ -1,5 +1,0 @@
-- name: "Clone emacs.d"
-  ansible.builtin.git:
-    repo: 'https://github.com/jaswraith/emacs.d.git'
-    dest: "{{ user_home }}/.emacs.d/"
-    update: no

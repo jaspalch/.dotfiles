@@ -1,6 +1,0 @@
-- name: "Deploy ~/bin/"
-  file:
-    src: "{{ dotfiles_home }}/roles/bin/files/"
-    dest: "{{ user_home }}/bin"
-    state: "link"
-    force: yes

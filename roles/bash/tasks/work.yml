@@ -1,6 +1,0 @@
-- name: "Deploy ~/.work.bashrc"
-  file:
-      src: "{{ dotfiles_home }}/roles/bash/files/work.bashrc"
-      dest: "{{ user_home }}/.work.bashrc"
-      state: "link"
-      force: yes
