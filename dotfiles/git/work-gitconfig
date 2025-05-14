@@ -1,0 +1,5 @@
+[user]
+        name = Jaspal Chauhan
+        email = jchauhan@cloudian.com
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/

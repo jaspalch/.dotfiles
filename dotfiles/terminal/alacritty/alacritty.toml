@@ -1,0 +1,11 @@
+general.import = [
+    "~/.config/alacritty/colors/custom_eldritch.toml"
+]
+
+window.decorations = "None"
+
+[font]
+size = 12
+[font.normal]
+family = "JetBrains Mono NL"
+style = "Regular"
