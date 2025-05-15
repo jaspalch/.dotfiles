@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [
     # File manager
-    kdePackages.dolphin
+    xfce.thunar
 
     # Screen region selector
     slurp

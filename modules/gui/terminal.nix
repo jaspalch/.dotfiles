@@ -5,7 +5,7 @@
 }: {
   # Prefer to install terminals through distribution for now
   home.packages = [
-    pkgs.wezterm
+    # pkgs.wezterm
   ];
 
   xdg.configFile."wezterm/" = {
