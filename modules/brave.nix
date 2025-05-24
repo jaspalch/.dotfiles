@@ -4,6 +4,6 @@
   ...
 }: {
   xdg.configFile."brave-flags.conf" = {
-    source = ../../dotfiles/misc/brave-flags.conf;
+    source = ../dotfiles/misc/brave-flags.conf;
   };
 }

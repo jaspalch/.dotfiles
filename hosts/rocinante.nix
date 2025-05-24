@@ -8,5 +8,6 @@
     ../modules/development.nix
     ../modules/gui
     ../modules/wm
+    ../modules/brave.nix
   ];
 }
