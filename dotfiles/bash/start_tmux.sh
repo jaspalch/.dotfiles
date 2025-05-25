@@ -1,9 +1,9 @@
 DEFAULT_TMUX_SESSION='0'
-IFS=$'\n' read -r -d '' -a ATTACHED_SESSIONS < <(tmux list-sessions -F '#{session_name}' -f '#{session_attached}' && printf '\0')
-IFS=$'\n' read -r -d '' -a DETACHED_SESSIONS < <(tmux list-sessions -F '#{session_name}' -f '#{?session_attached,0,1}' && printf '\0')
 
 # If in the right spot to run tmux
 if command -v tmux &>/dev/null && [[ -n "${PS1}" ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$INSIDE_EMACS" ]; then
+    IFS=$'\n' read -r -d '' -a ATTACHED_SESSIONS < <(tmux list-sessions -F '#{session_name}' -f '#{session_attached}' && printf '\0')
+    IFS=$'\n' read -r -d '' -a DETACHED_SESSIONS < <(tmux list-sessions -F '#{session_name}' -f '#{?session_attached,0,1}' && printf '\0')
     # Check if default session exists
     if tmux has-session -t "$DEFAULT_TMUX_SESSION"; then
         if [[ " ${ATTACHED_SESSIONS[*]} " =~ " $DEFAULT_TMUX_SESSION " ]]; then
