@@ -11,6 +11,7 @@
     ./modules/git.nix
     ./modules/neovim.nix
     ./modules/debugging.nix
+    ./modules/fastfetch.nix
   ];
 
   services.home-manager.autoExpire = {
@@ -32,10 +33,6 @@
     # Compression tools
     unzip
   ];
-
-  programs.fastfetch = {
-    enable = true;
-  };
 
   # Used for non-Home Manager configuration
   xdg.configFile."iswork" = lib.mkIf config.isWork {
