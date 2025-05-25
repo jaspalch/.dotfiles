@@ -21,19 +21,10 @@
     };
 
     bashrcExtra =
-      ''
-        # Start tmux
-         DEFAULT_TMUX_SESSION='main'
-         if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$INSIDE_EMACS" ]; then
-           if tmux has-session -t "$DEFAULT_TMUX_SESSION"; then
-             # tmux attach-session -t "$DEFAULT_TMUX_SESSION"
-             tmux
-           else
-             tmux new-session -s "$DEFAULT_TMUX_SESSION"
-           fi
-         fi
-      ''
-      + builtins.readFile ../dotfiles/bash/ps1.sh;
+      builtins.readFile
+      ../dotfiles/bash/start_tmux.sh
+      + builtins.readFile
+      ../dotfiles/bash/ps1.sh;
   };
 
   programs.dircolors = {

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 _GIT() {
     which git &>/dev/null || return
     git rev-parse --is-inside-work-tree &>/dev/null || return
