@@ -10,13 +10,6 @@
     description = "Option to enable work customizations";
   };
 
-  # isGUI = pkgs.lib.mkOption {
-  #   type = pkgs.lib.types.bool;
-  #   default = false;
-  #   example = false;
-  #   description = "Option to enable GUI programs";
-  # };
-
   homeManagerCfgs = pkgs.lib.mkOption {
     type = pkgs.lib.types.path;
     apply = toString;
