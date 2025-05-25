@@ -5,7 +5,7 @@
 }: {
   programs.waybar = {
     enable = true;
-    style = ../../dotfiles/waybar/style.css;
+    style = ../../dots/waybar/style.css;
     settings = {
       mainBar = {
         "height" = 28; # Waybar height (to be removed for auto height)

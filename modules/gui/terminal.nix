@@ -9,9 +9,9 @@
   ];
 
   xdg.configFile."wezterm/" = {
-    source = ../../dotfiles/terminal/wezterm;
+    source = ../../dots/terminal/wezterm;
   };
   xdg.configFile."alacritty/" = {
-    source = ../../dotfiles/terminal/alacritty;
+    source = ../../dots/terminal/alacritty;
   };
 }

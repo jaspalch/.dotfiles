@@ -21,8 +21,8 @@
     };
 
     bashrcExtra =
-      builtins.readFile ../dotfiles/bash/start_tmux.sh
-      + builtins.readFile ../dotfiles/bash/ps1.sh;
+      builtins.readFile ../dots/bash/start_tmux.sh
+      + builtins.readFile ../dots/bash/ps1.sh;
   };
 
   programs.dircolors = {
