@@ -44,4 +44,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Disable home-manager news notifications
+  news.display = "silent";
 }
