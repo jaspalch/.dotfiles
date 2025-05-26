@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 -- end of bootrapping
 
 require("lazy").setup({ { import = "my/plugins" } }, {
-    concurrency = 1,
+    concurrency = 8,
     checker = {
         enabled = true,
         notify = false,
