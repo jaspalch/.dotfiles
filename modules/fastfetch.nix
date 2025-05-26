@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   user,
   ...
@@ -7,7 +8,7 @@
   programs.fastfetch = {
     enable = true;
     settings = {
-      logo = {
+      logo = lib.mkIf (! config.isWork) {
         source = ../dots/fastfetch/logo.txt;
         type = "file";
       };
