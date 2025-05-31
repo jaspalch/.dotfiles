@@ -6,7 +6,9 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    fira-code-nerdfont
+    fira-code
     jetbrains-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
   ];
 }

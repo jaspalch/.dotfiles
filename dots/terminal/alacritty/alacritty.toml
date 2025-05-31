@@ -1,5 +1,5 @@
 general.import = [
-    "~/.config/alacritty/colors/custom_eldritch.toml"
+    "~/.config/alacritty/colors/carbonfox.toml"
 ]
 
 window.decorations = "None"
@@ -7,5 +7,5 @@ window.decorations = "None"
 [font]
 size = 12
 [font.normal]
-family = "JetBrains Mono NL"
-style = "Regular"
+family = "JetBrainsMonoNL NerdFont"
+style = "Medium"

@@ -51,7 +51,6 @@ in {
     prefix = "C-a";
     keyMode = "vi";
     baseIndex = 1;
-    terminal = "tmux-256color";
 
     extraConfig = ''
       # Window switching
@@ -69,8 +68,9 @@ in {
       bind _ split-window -h -c "#{pane_current_path}"
 
       # 24 bit colors
+      set -g default-terminal "$TERM"
       set-option -a terminal-features "$TERM:RGB"
-      set-option -sa terminal-overrides ",xterm*:Tc"
+      set-option -ga terminal-overrides ",$TERM:Tc"
 
       # Put status bar on top
       set-option -g status-position top
