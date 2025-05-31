@@ -12,12 +12,11 @@
       ll = "ls -lh";
       la = "ls -la";
       ols = "ls -la --color | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'";
-      vi = "nvim --clean";
-      vim = "nvim";
+      vi = "NVIM_MINIMAL=1 nvim";
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "NVIM_MINIMAL=1 nvim";
     };
 
     bashrcExtra =

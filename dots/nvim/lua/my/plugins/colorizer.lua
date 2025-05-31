@@ -1,5 +1,6 @@
 return {
     "norcalli/nvim-colorizer.lua",
+    enabled = not vim.env.NVIM_MINIMAL,
     config = function()
         require("colorizer").setup({
             "*",

@@ -1,6 +1,7 @@
 return {
     "saghen/blink.pairs",
     version = "0.2.0", -- (recommended) only required with prebuilt binaries
+    enabled = not vim.env.NVIM_MINIMAL,
 
     -- download prebuilt binaries from github releases
     dependencies = "saghen/blink.download",
