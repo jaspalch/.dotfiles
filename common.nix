@@ -14,7 +14,7 @@
     ./modules/fastfetch.nix
   ];
 
-  services.home-manager.autoExpire = {
+  services.home-manager.autoExpire = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     frequency = "weekly";
     timestamp = "-21 days";

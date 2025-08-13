@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
+local platform = wezterm.target_triple -- e.g., "x86_64-apple-darwin", "x86_64-unknown-linux-gnu"
 
 -- Font
 config.font = wezterm.font("JetBrains Mono NL Medium")
@@ -14,6 +15,12 @@ config.window_decorations = "NONE"
 
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
+
+-- MacOS specific settings:
+if platform:find("darwin") then
+	config.window_decorations = "RESIZE"
+	config.font_size = 16
+end
 
 -- Keybindings
 ---- Set leader combo to CTRL-T

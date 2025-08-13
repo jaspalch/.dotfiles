@@ -18,6 +18,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+
     pkgs = nixpkgs.legacyPackages.${system};
     unstable = nixpkgs-unstable.legacyPackages.${system};
 
@@ -28,9 +29,10 @@
     # Generate home-manager config names
     cfgs =
       {
-        "${user}@rocinante" = true;
-        "${work_user}@jaspal-virt" = true;
-        "${work_user}@jaspals-thinkpad" = true;
+        "${user}@rocinante" = "x86_64-linux";
+        "${user}@normandy" = "aarch64-darwin";
+        "${work_user}@jaspal-virt" = "x86_64-linux";
+        "${work_user}@jaspals-thinkpad" = "x86_64-linux";
       }
       // builtins.listToAttrs (
         builtins.genList (i: {
@@ -40,7 +42,11 @@
         7
       );
 
-    mkHomeCfg = {name, ...}: let
+    mkHomeCfg = {
+      name,
+      system,
+      ...
+    }: let
       username = builtins.head (builtins.match "(.+)@.+" name);
       host = let
         hostname = builtins.head (builtins.match ".+@(.+)" name);
@@ -48,6 +54,8 @@
         if builtins.match "^jcvirt[0-9]+$" hostname != null
         then "jcvirt"
         else hostname;
+      pkgs = nixpkgs.legacyPackages.${system};
+      unstable = nixpkgs-unstable.legacyPackages.${system};
     in
       inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -62,6 +70,8 @@
               home.homeDirectory =
                 if builtins.match "root" username != null
                 then "/root"
+                else if system == "aarch64-darwin"
+                then "/Users/${username}"
                 else "/home/${username}";
 
               programs.home-manager.enable = true;
@@ -81,9 +91,9 @@
         };
       };
   in {
-    homeConfigurations = builtins.mapAttrs (name: value:
+    homeConfigurations = builtins.mapAttrs (name: system:
       mkHomeCfg {
-        inherit name;
+        inherit name system;
       })
     cfgs;
   };
