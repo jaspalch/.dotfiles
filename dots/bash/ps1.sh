@@ -18,10 +18,14 @@ _PS1() {
     [[ $USER == 'root' ]] && user_color='red'
 
     user="$(_BOLD "$(_COLOR $user_color \\u)")"
-    hostname="$(_BOLD "$(_COLOR blue \\h)")"
     pwd="$(_BOLD "$(_COLOR yellow [\\w])")"
+    if [[ -z "${SSH_CONNECTION}" ]]; then
+        hostname="$(_BOLD "$(_COLOR green @)")$(_BOLD "$(_COLOR blue \\h)")"
+    else
+        hostname="$(_BOLD "$(_COLOR red "󱚹 ")")$(_BOLD "$(_COLOR purple \\h)")"
+    fi
 
-    PS1="${user}$(_COLOR green '@')${hostname}${pwd}\n $(_BOLD "$(_COLOR $user_color )") "
+    PS1="${user}${hostname}${pwd}\n $(_BOLD "$(_COLOR $user_color )") "
 }
 
 _PS1
