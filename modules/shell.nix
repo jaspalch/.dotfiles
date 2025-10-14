@@ -28,6 +28,8 @@
     enable = true;
   };
 
+  programs.direnv.enable = true;
+
   home.sessionPath = [
     "$HOME/go/bin"
   ];

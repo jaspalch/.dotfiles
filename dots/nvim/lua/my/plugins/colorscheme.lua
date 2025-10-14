@@ -1,4 +1,4 @@
-return {
+local carbonfox = {
     "EdenEast/nightfox.nvim",
     -- Don't lazy load since this is the main colorscheme
     lazy = false,
@@ -42,3 +42,25 @@ return {
         vim.cmd([[colorscheme carbonfox]])
     end,
 }
+
+local tokyonight = {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+        require("tokyonight").setup({
+            style = "night",
+            styles = {
+                comments = { italic = true },
+                keywords = {},
+                functions = { bold = true },
+                variables = {},
+                conditionals = { bold = true },
+            },
+        })
+        vim.cmd([[colorscheme tokyonight]])
+    end,
+}
+
+return tokyonight

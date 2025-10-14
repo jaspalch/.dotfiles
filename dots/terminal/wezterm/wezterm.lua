@@ -4,11 +4,11 @@ local act = wezterm.action
 local platform = wezterm.target_triple -- e.g., "x86_64-apple-darwin", "x86_64-unknown-linux-gnu"
 
 -- Font
-config.font = wezterm.font("JetBrains Mono NL Medium")
+config.font = wezterm.font("JetBrainsMonoNL Nerd Font")
 config.font_size = 12
 
 -- Colorscheme
-config.color_scheme = "carbonfox"
+config.color_scheme = "Tokyo Night"
 
 -- Window decorations
 config.window_decorations = "NONE"

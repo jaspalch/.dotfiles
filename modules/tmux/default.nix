@@ -36,7 +36,7 @@
     {
       pluginName = "tokyo-night-tmux";
       rtpFilePath = "tokyo-night.tmux";
-      version = "1.6.5";
+      version = "1.6.6";
       src = pkgs.fetchFromGitHub {
         owner = "janoamaral";
         repo = "tokyo-night-tmux";
@@ -83,9 +83,6 @@ in {
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
       bind-key P run-shell 'tmux set-buffer -b wl-paste "$(wl-paste --no-newline)"' \; paste-buffer -b wl-paste -d
-
-      # Load theme customizations
-      run-shell ${custom_theme_script}
     '';
 
     sensibleOnTop = false;
@@ -98,7 +95,8 @@ in {
       {
         plugin = tokyo-night-tmux;
         extraConfig = ''
-          set -g @tokyo-night-tmux_theme moon
+          set -g @tokyo-night-tmux_theme night
+          set -g @tokyo-night-tmux_window_id_style roman
         '';
       }
     ];
