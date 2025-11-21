@@ -28,7 +28,7 @@ wk.add({
     {
         "<leader>bd",
         function()
-            vim.cmd("bd")
+            vim.cmd("bp | sp | bn | bd")
         end,
         desc = "Delete Buffer",
     },
