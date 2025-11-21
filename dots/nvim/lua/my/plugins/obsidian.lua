@@ -1,12 +1,9 @@
 return {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     enabled = not vim.env.NVIM_MINIMAL,
     version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
     ft = "markdown",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-    },
+    lazy = true,
     opts = {
         workspaces = {
             {
