@@ -3,10 +3,19 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local lualine = require("lualine")
+        -- Set transparency on everything except lualine_a (mode)
+        local auto_theme_custom = require("lualine.themes.auto")
+        auto_theme_custom.normal.c.bg = nil
+        auto_theme_custom.normal.b.bg = nil
+        local base_statusline_highlights =
+            { "StatusLine", "StatusLineNC", "Tabline", "TabLineFill", "TabLineSel", "Winbar", "WinbarNC" }
+        for _, hl_group in pairs(base_statusline_highlights) do
+            vim.api.nvim_set_hl(0, hl_group, { bg = "none" })
+        end
         lualine.setup({
             options = {
                 icons_enabled = true,
-                theme = "auto",
+                theme = auto_theme_custom,
                 component_separators = { left = "|", right = "|" },
                 section_separators = "",
                 disabled_filetypes = {

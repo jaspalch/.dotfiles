@@ -3,10 +3,10 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -17,11 +17,6 @@
     home-manager,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
-
-    pkgs = nixpkgs.legacyPackages.${system};
-    unstable = nixpkgs-unstable.legacyPackages.${system};
-
     # Customized username
     user = "jsc";
     work_user = "jchauhan";
@@ -54,8 +49,20 @@
         if builtins.match "^jcvirt[0-9]+$" hostname != null
         then "jcvirt"
         else hostname;
-      pkgs = nixpkgs.legacyPackages.${system};
-      unstable = nixpkgs-unstable.legacyPackages.${system};
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = pkg:
+          builtins.elem pkg.pname [
+            "terraform"
+          ];
+      };
+      unstable = import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfreePredicate = pkg:
+          builtins.elem pkg.pname [
+            "claude-code"
+          ];
+      };
     in
       inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

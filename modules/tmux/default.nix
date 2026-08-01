@@ -44,7 +44,33 @@
         sha256 = "sha256-TOS9+eOEMInAgosB3D9KhahudW2i1ZEH+IXEc0RCpU0=";
       };
     };
-  custom_theme_script = pkgs.writeShellScript "custom_carbonfox.tmux" (builtins.readFile ./themes/custom_carbonfox.tmux);
+  tmux-resurrect =
+    pkgs.tmuxPlugins.mkTmuxPlugin
+    {
+      pluginName = "tmux-resurrect";
+      rtpFilePath = "resurrect.tmux";
+      version = "unstable-2023-03-06";
+      src = pkgs.fetchFromGitHub {
+        owner = "tmux-plugins";
+        repo = "tmux-resurrect";
+        rev = "ca6468e2deef11efadfe3a62832ae67742505432";
+        hash = "sha256-wl9/5XvFq+AjV8CwYgIZjPOE0/kIuEYBNQqNDidjNFo=";
+        fetchSubmodules = true;
+      };
+    };
+  tmux-continuum =
+    pkgs.tmuxPlugins.mkTmuxPlugin
+    {
+      pluginName = "tmux-continuum";
+      rtpFilePath = "continuum.tmux";
+      version = "unstable-2024-01-20";
+      src = pkgs.fetchFromGitHub {
+        owner = "tmux-plugins";
+        repo = "tmux-continuum";
+        rev = "0698e8f4b17d6454c71bf5212895ec055c578da0";
+        sha256 = "sha256-W71QyLwC/MXz3bcLR2aJeWcoXFI/A3itjpcWKAdVFJY=";
+      };
+    };
 in {
   programs.tmux = {
     enable = true;
@@ -66,6 +92,9 @@ in {
       # Window splitting (into current directory)
       bind - split-window -v -c "#{pane_current_path}"
       bind _ split-window -h -c "#{pane_current_path}"
+
+      # Renumber windows when one is closed
+      set-option -g renumber-windows on
 
       # 24 bit colors
       set -g default-terminal "$TERM"
@@ -98,6 +127,15 @@ in {
           set -g @tokyo-night-tmux_theme night
           set -g @tokyo-night-tmux_window_id_style roman
         '';
+      }
+      {
+        plugin = tmux-continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+        '';
+      }
+      {
+        plugin = tmux-resurrect;
       }
     ];
   };

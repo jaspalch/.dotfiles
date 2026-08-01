@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   user,
   ...
@@ -16,12 +17,17 @@
     };
 
     sessionVariables = {
-      EDITOR = "NVIM_MINIMAL=1 nvim";
+      EDITOR = "env NVIM_MINIMAL=1 nvim";
     };
 
     bashrcExtra =
       builtins.readFile ../dots/bash/start_tmux.sh
       + builtins.readFile ../dots/bash/ps1.sh;
+
+    # For macOS path_helper issue
+    initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
+      export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+    '';
   };
 
   programs.dircolors = {

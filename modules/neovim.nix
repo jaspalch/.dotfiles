@@ -9,7 +9,7 @@
     recursive = false;
   };
 
-  # LSP, formatters, linters
+  # Language servers, formatters, linters
   home.packages = [
     # Language servers
     pkgs.bash-language-server
@@ -17,9 +17,10 @@
     pkgs.lua-language-server
     pkgs.pyright
     pkgs.nil
+    pkgs.clang-tools
 
-    # Formatters
-    pkgs.nodePackages.prettier
+    # Formatters/linters
+    pkgs.prettier
     pkgs.stylua
     pkgs.black
     pkgs.shfmt

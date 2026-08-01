@@ -16,6 +16,10 @@ config.window_decorations = "NONE"
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
+-- Transparency
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 15
+
 -- MacOS specific settings:
 if platform:find("darwin") then
 	config.window_decorations = "RESIZE"
@@ -49,9 +53,6 @@ config.keys = {
 
 	-- Clear screen
 	{ mods = "LEADER|SHIFT", key = "l", action = act.SendKey({ key = "l", mods = "CTRL" }) },
-
-	-- Send CTRL-a
-	-- { mods = "LEADER|CTRL", key = "a", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 }
 
 return config

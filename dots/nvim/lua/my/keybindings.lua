@@ -88,13 +88,6 @@ wk.add({
         end,
         desc = "Toggle whitespace chars",
     },
-    {
-        "<leader>rl",
-        function()
-            vim.cmd("nohl")
-        end,
-        desc = "Remove search HL",
-    },
     -- Search
     { "<leader>s", group = "Search" },
     { "<leader>ss", ts.live_grep, desc = "Live grep in $PWD" },

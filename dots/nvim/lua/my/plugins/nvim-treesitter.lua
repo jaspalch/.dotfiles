@@ -31,6 +31,8 @@ return {
                 "toml",
                 "yaml",
                 "nix",
+                "c",
+                "cpp",
             },
         })
     end,

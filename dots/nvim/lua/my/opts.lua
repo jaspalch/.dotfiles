@@ -27,13 +27,10 @@ vim.opt.tabstop = 4
 vim.opt.expandtab = true
 
 ---- Minimum # of lines from cursor to edge of buffer
-vim.opt.so = 5
+vim.opt.scrolloff = 5
 
 ---- Turn line wrap on
 vim.opt.wrap = true
-
----- Don't redraw while doing macros
-vim.opt.lazyredraw = true
 
 ---- Set magic for regexes
 vim.opt.magic = true
@@ -41,7 +38,7 @@ vim.opt.magic = true
 ---- Matching brackets highlight
 vim.opt.showmatch = true
 ------ Highlight matching brackets for this amount of 1/10 secs
-vim.opt.mat = 2
+vim.opt.matchtime = 2
 
 ---- Set Unix EOL chars as default
 vim.opt.fileformats = "unix,dos,mac"
@@ -57,7 +54,7 @@ vim.opt.listchars = {
 }
 
 ---- Disable backups
-vim.opt.wb = false
+vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 -- Enable 24 bit colors
@@ -66,5 +63,3 @@ vim.opt.termguicolors = true
 -- Set leader key
 vim.g.mapleader = " "
 
--- For obsidian.nvim
-vim.opt_local.conceallevel = 1
