@@ -11,6 +11,9 @@
 
   # Language servers, formatters, linters
   home.packages = [
+    # Picker
+    pkgs.fzf
+
     # Language servers
     pkgs.bash-language-server
     pkgs.gopls

@@ -1,6 +1,6 @@
 -- Keybindings
 local wk = require("which-key")
-local ts = require("telescope.builtin")
+local fzf = require("fzf-lua")
 local ng = require("neogit")
 local gs = require("gitsigns")
 
@@ -9,7 +9,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- LEADER bindings
 wk.add({
     -- Buffer switcher
-    { "<leader><space>", ts.buffers, desc = "Find buffer" },
+    { "<leader><space>", fzf.buffers, desc = "Find buffer" },
 
     -- Tabs
     { "<leader><tab>", group = "Tabs" },
@@ -56,7 +56,7 @@ wk.add({
         end,
         desc = "Delete file & buffer",
     },
-    { "<leader>ff", ts.find_files, desc = "Find File" },
+    { "<leader>ff", fzf.files, desc = "Find File" },
     {
         "<leader>fn",
         function()
@@ -64,8 +64,8 @@ wk.add({
         end,
         desc = "New File",
     },
-    { "<leader>fp", ts.git_files, desc = "Find file in project" },
-    { "<leader>fr", ts.oldfiles, desc = "Open Recent File" },
+    { "<leader>fp", fzf.git_files, desc = "Find file in project" },
+    { "<leader>fr", fzf.oldfiles, desc = "Open Recent File" },
 
     -- Git
     { "<leader>g", group = "git" },
@@ -77,7 +77,7 @@ wk.add({
         desc = "blame",
     },
     { "<leader>gg", ng.open, desc = "neogit" },
-    { "<leader>gs", ts.git_status, desc = "git status" },
+    { "<leader>gs", fzf.git_status, desc = "git status" },
 
     -- Random stuff
     { "<leader>r", group = "Random Stuff" },
@@ -90,7 +90,7 @@ wk.add({
     },
     -- Search
     { "<leader>s", group = "Search" },
-    { "<leader>ss", ts.live_grep, desc = "Live grep in $PWD" },
+    { "<leader>ss", fzf.live_grep, desc = "Live grep in $PWD" },
 
     {
         "<leader>t",
@@ -115,7 +115,7 @@ wk.add({
         desc = "[W]rite buffer (noautocmd)",
     },
 
-    { "<leader>x", ts.commands, desc = "Commands" },
+    { "<leader>x", fzf.commands, desc = "Commands" },
 })
 
 -- LSP bindings
@@ -129,16 +129,16 @@ wk.add({
     { "gra", vim.lsp.buf.code_action, desc = "[G]oto Code [A]ction", mode = { "n", "x" } },
 
     -- Find references for the word under your cursor.
-    { "grr", ts.lsp_references, desc = "[G]oto [R]eferences" },
+    { "grr", fzf.lsp_references, desc = "[G]oto [R]eferences" },
 
     -- Jump to the implementation of the word under your cursor.
     --  Useful when your language has ways of declaring types without an actual implementation.
-    { "gri", ts.lsp_implementations, desc = "[G]oto [I]mplementation" },
+    { "gri", fzf.lsp_implementations, desc = "[G]oto [I]mplementation" },
 
     -- Jump to the definition of the word under your cursor.
     --  This is where a variable was first declared, or where a function is defined, etc.
     --  To jump back, press <C-t>.
-    { "grd", ts.lsp_definitions, desc = "[G]oto [D]efinition" },
+    { "grd", fzf.lsp_definitions, desc = "[G]oto [D]efinition" },
 
     -- WARN: This is not Goto Definition, this is Goto Declaration.
     --  For example, in C this would take you to the header.
@@ -146,14 +146,14 @@ wk.add({
 
     -- Fuzzy find all the symbols in your current document.
     --  Symbols are things like variables, functions, types, etc.
-    { "gO", ts.lsp_document_symbols, desc = "Open Document Symbols" },
+    { "gO", fzf.lsp_document_symbols, desc = "Open Document Symbols" },
 
     -- Fuzzy find all the symbols in your current workspace.
     --  Similar to document symbols, except searches over your entire project.
-    { "gW", ts.lsp_dynamic_workspace_symbols, desc = "Open Workspace Symbols" },
+    { "gW", fzf.lsp_live_workspace_symbols, desc = "Open Workspace Symbols" },
 
     -- Jump to the type of the word under your cursor.
     --  Useful when you're not sure what type a variable is and you want to see
     --  the definition of its *type*, not where it was *defined*.
-    { "grt", ts.lsp_type_definitions, desc = "[G]oto [T]ype Definition" },
+    { "grt", fzf.lsp_typedefs, desc = "[G]oto [T]ype Definition" },
 })
