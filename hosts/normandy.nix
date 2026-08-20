@@ -8,5 +8,6 @@
     ../modules/development.nix
     ../modules/gui/fonts.nix
     ../modules/gui/terminal.nix
+    ../modules/gc.nix
   ];
 }
